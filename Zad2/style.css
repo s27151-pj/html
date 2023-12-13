@@ -1,0 +1,108 @@
+/* Resetowanie domyślnych stylów przeglądarki */
+body, h1, h2, p, ul, li, form, table {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    background: url('M:/practice/tapeta-regal-z-ksiazkami-w-bibliotece.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333; 
+    margin: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    /* align-items: stretch; */
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 24%;
+}
+
+.left-column {
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
+}
+
+.navbar1 {
+    list-style: none;
+    background-color: #222; /* Ciemny kolor tła nawigacji */
+    padding: 10px;
+    
+}
+
+.navbar1 a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.navbar1 a:hover {
+    background-color: #444;
+}
+
+.navbar2 {
+    list-style: none;
+    background-color: #111;
+    padding: 10px;
+}
+.right-column {
+    justify-content: right;
+    width: 70%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 1);
+    overflow-y: scroll;
+}
+
+.footer {
+    justify-content: center;
+    text-align: center;
+    background-color: #222;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 80%;
+}
+.fotter-size {
+    padding: 20px;
+}
+.form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.table-container {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container th, .table-container td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.table-container tr:nth-child(even) {
+    background-color: #e0e0e0; /* Jasnoszary kolor co drugiego wiersza */
+}
+
+.spacer {
+    margin-bottom: 150px;
+}

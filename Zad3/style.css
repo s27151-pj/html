@@ -1,0 +1,106 @@
+
+body, h1, h2, p, ul, li, form, table {
+    margin: 0;
+    padding: 0;
+}
+p{
+    padding: 10px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333; 
+    margin: 0;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.section-left {
+    justify-content: left;
+}
+.section-right {
+    justify-content: right;
+}
+.section-left, .section-right {
+    width: 50%;
+    padding: 10px;
+    margin: 20px;
+}
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    bottom: 0;
+}
+.container-left, .container-middle, .container-right {
+    padding: 20px;
+    width: 33%;
+
+}
+.fotter-size {
+    padding: 20px;
+}
+.navbar {
+    display: flex;
+    list-style: none;
+    padding: 10px;
+    text-decoration: none;
+}
+.navbar a{
+    color: black;
+    text-decoration: none;
+}
+
+.navbar li {
+    margin-right: 20px;
+    list-style: none;
+    text-decoration: none;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 15px;
+    background-color: white;
+    flex-direction: column;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.table-container {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container th, .table-container td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.table-container tr:nth-child(even) {
+    background-color: #e0e0e0; 
+}
+
+.spacer {
+    margin-bottom: 150px;
+}
