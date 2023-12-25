@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Napisz funkcję, sprawdzającą, czy dane trzy liczby tworzą
+        „trójkę pitagorejską” (uwaga – liczby nie muszą być podane w
+        kolejności rosnącej).</h1>
+
+    <script>
+        //  Zad1
+        function czyTrojkaPitagorejska(a, b, c) {
+            if (typeof a === 'number' && typeof b === 'number' && typeof c === 'number') {
+                const sortedNumbers = [a, b, c].sort((x, y) => x - y);
+                const wynik = sortedNumbers[0] ** 2 + sortedNumbers[1] ** 2 === sortedNumbers[2] ** 2;
+                if (wynik) {
+                    console.log(`${a}, ${b}, ${c} to trójka pitagorejska.`);
+                } else {
+                    console.log(`${a}, ${b}, ${c} nie tworzą trójki pitagorejskiej.`);
+                }
+            } else {
+                console.error('Podane argumenty nie są liczbami.');
+            }
+        }
+        czyTrojkaPitagorejska(3, 4, 5)
+    </script>
+
+    <h1>Napisz funkcję wypisującą wszystkie liczby z przedziału a-b,
+        podzielne przez c.</h1>
+
+    <script>
+        //  Zad2
+        function liczbyPodzielne(a, b, c) {
+            if (typeof a === 'number' && typeof b === 'number' && typeof c === 'number') {
+                const wyniki = [];
+                for (let i = a; i <= b; i++) {
+                    if (i % c === 0) {
+                        wyniki.push(i);
+                    }
+                }
+                console.log(`Liczby z przedziału ${a}-${b} podzielne przez ${c}:`, wyniki);
+            } else {
+                console.error('Podane argumenty nie są liczbami.');
+            }
+        }
+
+        liczbyPodzielne(1, 20, 3);
+    </script>
+
+    <h1>Napisz funkcję wypisującą w konsoli tabliczkę mnożenia o
+            boku podanym jako parametr.</h1>
+
+    <script>
+        //  Zad3
+        function tabliczka(bok) {
+            if (typeof bok === 'number' && bok > 0) {
+                for (let i = 1; i <= bok; i++) {
+                    let row = '';
+                    for (let j = 1; j <= bok; j++) {
+                        row += (i * j) + ' ';
+                    }
+                    console.log(row);
+                }
+            } else {
+                console.error('Podany argument nie jest liczbą lub jest mniejszy lub równy 0.');
+            }
+        }
+        tabliczka(3);
+    </script>
+
+    <h1>Napisz funkcję wypisującą w konsoli ciąg Fibonacciego o
+            długości podanej jako parametr.</h1>
+    <script>
+        //  Zad4
+        function fibonacci(n) {
+            if (typeof n === 'number' && n > 0) {
+                let fibArray = [0, 1];
+
+                for (let i = 2; i < n; i++) {
+                    fibArray[i] = fibArray[i - 1] + fibArray[i - 2];
+                }
+
+                console.log(`Ciąg Fibonacciego o długości ${n}:`, fibArray);
+            } else {
+                console.error('Podany argument nie jest liczbą lub jest mniejszy lub równy 0.');
+            }
+        }
+
+        fibonacci(10);
+    </script>
+
+    <h1>Napisz funkcję rysującą choinkę o podanej wysokości.</h1>
+
+    <script>
+        //  Zad5
+        function choinka(wysokosc) {
+            if (typeof wysokosc === 'number' && wysokosc > 0) {
+                for (let i = 1; i <= wysokosc; i++) {
+                    let gwiazdki = '';
+                    for (let j = 1; j <= i; j++) {
+                        gwiazdki += '*';
+                    }
+                    console.log(gwiazdki);
+                }
+            } else {
+                console.error('Podany argument nie jest liczbą lub jest mniejszy lub równy 0.');
+            }
+        }
+
+        choinka(3);
+    </script>
+
+    <h1>Napisz funkcję rysującą „choinkę nocą” o podanej wysokości
+        (szerokość jest tu nieco większa niż wysokość).</h1>
+    <script>
+        //  Zad6
+        function choinkaNoca(wysokosc) {
+            if (typeof wysokosc === 'number' && wysokosc > 0) {
+                wysokosc -= 1;0  
+                console.log('*'.repeat(wysokosc * 2 - 1));
+
+                for (let i = 2; i <= wysokosc; i++) {
+                    let gwiazdki = '*'.repeat(wysokosc - i + 1) + ' '.repeat(2 * (i - 1) - 1) + '*'.repeat(wysokosc - i + 1);
+                    console.log(gwiazdki);
+                }
+
+                console.log('*'.repeat(wysokosc * 2 - 1));
+            } else {
+                console.error('Podany argument nie jest liczbą lub jest mniejszy lub równy 0.');
+            }
+        }
+
+        choinkaNoca(6);
+    </script>
+
+    <h1>Napisz funkcję liczącą pole wybranej figury (prostokąt,
+        trapez, równoległobok, trójkąt) z wykorzystaniem instrukcji
+        switch. Każda figura powinna mieć osobną funkcję do liczenia
+        pola.</h1>
+
+    <script>
+        //  Zad7
+        function poleFigury(rodzaj, a, b, h) {
+            switch (rodzaj) {
+                case 'prostokat':
+                    return poleProstokata(a, b);
+                case 'trapez':
+                    return poleTrapezu(a, b, h);
+                case 'rownoleglobok':
+                    return poleRownolegloboku(a, h);
+                case 'trojkat':
+                    return poleTrojkata(a, h);
+                default:
+                    console.error('Nieznany rodzaj figury');
+                    return NaN;
+            }
+        }
+
+        function poleProstokata(a, b) {
+            return a * b;
+        }
+
+        function poleTrapezu(a, b, h) {
+            return ((a + b) / 2) * h;
+        }
+
+        function poleRownolegloboku(a, h) {
+            return a * h;
+        }
+
+        function poleTrojkata(a, h) {
+            return (a * h) / 2;
+        }
+
+        console.log(poleFigury('prostokat', 4, 5));
+        console.log(poleFigury('trapez', 3, 7, 4));
+        console.log(poleFigury('rownoleglobok', 6, 0, 8));
+        console.log(poleFigury('trojkat', 10, 0, 6));
+    </script>
+
+    <h1>Napisz funkcję liczącą pole wybranej figury (prostokąt,
+        trapez, równoległobok, trójkąt) bez użycia instrukcji
+        warunkowej (bez if, switch, pętli). Wykorzystaj funkcje
+        anonimowe i callback.</h1>
+
+    <script>
+        //  Zad8
+        const poleProstokata = (a, b) => a * b;
+        const poleTrapezu = (a, b, h) => ((a + b) / 2) * h;
+        const poleRownolegloboku = (a, h) => a * h;
+        const poleTrojkata = (a, h) => (a * h) / 2;
+
+        const poleFigury = (rodzaj, a, b, h, callback) => callback(a, b, h);
+
+        console.log(poleFigury('prostokat', 3, 5, null, poleProstokata)); 
+        console.log(poleFigury('trapez', 5, 7, 4, poleTrapezu));
+        console.log(poleFigury('rownoleglobok', 6, 4, null, poleRownolegloboku));
+        console.log(poleFigury('trojkat', 10, 8, null, poleTrojkata));
+    </script>
+
+    <h1>Napisz funkcję wypisującą w konsoli trójkąt Pascala o
+        wysokości podanej jako parametr
+    </h1>
+    <script>
+        //  Zad9
+        function trojkatPascala(wysokosc) {
+            for (let i = 0; i < wysokosc; i++) {
+                let row = '';
+                let liczba = 1;
+
+                for (let j = 0; j <= i; j++) {
+                    row += liczba + ' ';
+                    liczba = liczba * (i - j) / (j + 1);
+                }
+
+                console.log(row.padStart((wysokosc - i) * 2).trim());
+            }
+        }
+
+        trojkatPascala(5);
+    </script>
+
+    <h1>
+        Napisz funkcję cenzurującą zdanie. Funkcja ma otrzymać 2
+        parametry: tablicę niedozwolonych słów oraz zdanie do
+        ocenzurowania. Każde niedozwolone słowo ma zostać zastąpione
+        znakiem *.
+    </h1>
+    <script>
+        //  Zad10
+        function cenzura(niedozwolone, zdanie) {
+            const niedozwoloneRegex = new RegExp(niedozwolone.join('|'), 'gi');
+
+            return zdanie.replace(niedozwoloneRegex, (match) => '*'.repeat(match.length));
+        }
+
+        console.log(cenzura(['Ala', 'kot'], 'Ala ma kota i psa.'));
+    </script>
+    
+</body>
+</html>
